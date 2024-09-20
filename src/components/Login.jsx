@@ -167,15 +167,11 @@ const Login = () => {
             </button>
           </div>
         </form>
+        
         <div className="mt-6 text-center">
-          <a href="#" className="text-sm text-[#05B0FC] hover:text-blue-500">
-            Forgot your password?
-          </a>
-        </div>
-        <div className="mt-6 text-center">
-          <a href="#" className="text-sm text-[#05B0FC] hover:text-blue-500"> 
+          <Link href="/register" className="text-sm text-[#05B0FC] hover:text-blue-500" > 
             Don`t have an account? Register
-          </a>
+          </Link>
         </div>
       </div>
       {warn && <WarningModel setWarn={setWarn} messege={messegeref.current} />}

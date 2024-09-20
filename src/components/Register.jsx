@@ -154,13 +154,11 @@ export default function Register() {
                 className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
               >
                 
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
+                
+                <option value="9">9<sup>th</sup> </option>
+                <option value="10">10<sup>th</sup> </option>
+                <option value="11">11<sup>th</sup> </option>
+                <option value="12">12<sup>th</sup> </option>
               </select>
             </div>
             {/* Disability */}
@@ -242,9 +240,9 @@ export default function Register() {
           </div>
 
           <div className="mt-6 text-center">
-            <a href="#" className="text-sm text-[#05B0FC] hover:text-blue-500">
+            <Link href="/login" className="text-sm text-[#05B0FC] hover:text-blue-500">
               Back To Login
-            </a>
+            </Link>
           </div>
         </form>
       </div>
