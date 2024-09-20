@@ -21,13 +21,13 @@ const Login = () => {
 
   const buttonClassNames =
     "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white " +
-    "bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500";
+    "bg-[#05B0FC] hover:bg-[#0A8DC7] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500";
 
   return (
     <div className="min-h-screen bg-blue-50 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl font-semibold text-center text-blue-600 mb-6">
-          Login to AI Study Plan
+        <h2 className="text-2xl font-semibold text-center text-[#05B0FC] mb-6">
+          Login
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -111,12 +111,12 @@ const Login = () => {
           </div>
         </form>
         <div className="mt-6 text-center">
-          <a href="#" className="text-sm text-blue-600 hover:text-blue-500">
+          <a href="#" className="text-sm text-[#05B0FC] hover:text-blue-500">
             Forgot your password?
           </a>
         </div>
         <div className="mt-6 text-center">
-          <a href="#" className="text-sm text-blue-600 hover:text-blue-500">
+          <a href="#" className="text-sm text-[#05B0FC] hover:text-blue-500">
             Don`t have an account? Register
           </a>
         </div>
