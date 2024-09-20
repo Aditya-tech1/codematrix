@@ -1,13 +1,20 @@
 "use client";
-import { useState } from "react";
+import { useState,useRef} from "react";
+import { MiniloadIcon} from "@/icons/icon";
+import WarningModel from "./WarningModel";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
+  const [isfetching, setIsfetching] = useState(false);
+  const [warn, setWarn] = useState(false);
+  const messegeref = useRef("something went wrong!");
 
   const handlesubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
+    setIsfetching(true);
     try {
+      
       const response = await fetch("/api/register", {
         method: "POST",
         headers: {
@@ -16,16 +23,19 @@ export default function Register() {
         body: JSON.stringify({ name: formData.get("name"), email: formData.get("email"), phone: formData.get("phone"), isTeacher: formData.get("isTeacher"), class_stu: formData.get("selectClass"), disability: formData.get("selectDisability"), password: formData.get("password") }),
       });
       const result = await response.json();
+      if (response.status === 500) {
+        setWarn(true);
+        messegeref.current = "Registeration failed tyr again!";
+      }
+      setIsfetching(false);
       console.log(response.status)
       console.log(result);
       return result.status;
     } catch (error) {
+      setIsfetching(false);
       console.error("Fetch error:", error);
       return result.status;
     } 
-
-    registerUser(formData);
-    console.log("hellohandlesubmit");
   };
 
   return (
@@ -210,9 +220,11 @@ export default function Register() {
           <div>
             <button
               type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#05B0FC] hover:bg-[#0A8DC7] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="w-full flex justify-center items-center gap-2 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#05B0FC] hover:bg-[#0A8DC7] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              disabled={isfetching ? true : false}
             >
-              Submit
+              {isfetching ? <MiniloadIcon className="h-4 w-4 animate-spin" /> : ""}
+              {isfetching ? "Please wait!" : "Submit"}
             </button>
           </div>
 
@@ -223,6 +235,7 @@ export default function Register() {
           </div>
         </form>
       </div>
+      {warn && <WarningModel setWarn={setWarn} messege={messegeref.current} />}
     </div>
   );
 }

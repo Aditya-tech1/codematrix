@@ -1,38 +1,46 @@
-'use client';
-import React, { useState, useCallback, useRef } from 'react';
-import WarningModel from './WarningModel';
+"use client";
+import React, { useState, useCallback, useRef } from "react";
+import WarningModel from "./WarningModel";
+import { MiniloadIcon } from "@/icons/icon";
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [warn, setWarn] = useState(false);
-  const messegeref=useRef("Email or password is incorrect");
+  const messegeref = useRef("Email or password is incorrect");
+  const [isfetching, setIsfetching] = useState(false);
 
-  const handleSubmit = useCallback(async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      const result = await response.json();
-      if (response.status === 401) {
-        setWarn(true);
-        messegeref.current="Email or password is incorrect";
-      }else if (response.status === 500) {  
-        setWarn(true);
-        messegeref.current="Failed to login user";
+  const handleSubmit = useCallback(
+    async (e) => {
+      setIsfetching(true);
+      e.preventDefault();
+      try {
+        const response = await fetch("/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        });
+        const result = await response.json();
+        if (response.status === 401) {
+          setWarn(true);
+          messegeref.current = "Email or password is incorrect";
+        } else if (response.status === 500) {
+          setWarn(true);
+          messegeref.current = "Failed to login user";
+        }
+        setIsfetching(false);
+        console.log(result);
+        return result.status;
+      } catch (error) {
+        console.error("Fetch error:", error);
+        setIsfetching(false);
+        return result.status;
       }
-      console.log(result);
-      return result.status;
-    } catch (error) {
-      console.error("Fetch error:", error);
-      return result.status;
-    } 
-  }, [email, password]);
+    },
+    [email, password]
+  );
 
   const togglePasswordVisibility = useCallback(() => {
     setShowPassword((prevState) => !prevState);
@@ -43,7 +51,7 @@ const Login = () => {
     "focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500";
 
   const buttonClassNames =
-    "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white " +
+    "w-full flex justify-center items-center gap-2 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white " +
     "bg-[#05B0FC] hover:bg-[#0A8DC7] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500";
 
   return (
@@ -54,7 +62,10 @@ const Login = () => {
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
               Email
             </label>
             <input
@@ -68,12 +79,15 @@ const Login = () => {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
             <div className="mt-1 relative">
               <input
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -128,8 +142,13 @@ const Login = () => {
             </div>
           </div>
           <div>
-            <button type="submit" className={buttonClassNames}>
-              Sign in
+            <button
+              type="submit"
+              disabled={isfetching ? true : false}
+              className={buttonClassNames}
+            >
+              {isfetching ? <MiniloadIcon className="h-4 w-4 animate-spin" /> : ""}
+              {isfetching ? "Please wait!" : "Login"}
             </button>
           </div>
         </form>
@@ -139,12 +158,12 @@ const Login = () => {
           </a>
         </div>
         <div className="mt-6 text-center">
-          <a href="#" className="text-sm text-[#05B0FC] hover:text-blue-500">
+          <a href="#" className="text-sm text-[#05B0FC] hover:text-blue-500"> 
             Don`t have an account? Register
           </a>
         </div>
       </div>
-      {warn && <WarningModel setWarn={setWarn} messege={messegeref.current}/>}
+      {warn && <WarningModel setWarn={setWarn} messege={messegeref.current} />}
     </div>
   );
 };
