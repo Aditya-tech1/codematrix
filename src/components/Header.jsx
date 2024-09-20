@@ -10,7 +10,7 @@ function Header() {
     return (
         <div className='flex fixed flex-row items-center justify-between h-[12vh] bg-transparent px-4 w-full top-0 left-0 '>
             <div className="logo flex flex-row items-center">
-                <Image src={logo} height={70}  className='h-full p-2'/>
+                <Image src={logo} height={70} alt='logo' className='h-full p-2'/>
                 <h2 className='text-2xl ml-3 font-bold font-serif text-white h-full '>Virtual Buddy</h2>
             </div>
             <nav className="flex flex-row items-center gap-5 text-white">

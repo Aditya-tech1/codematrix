@@ -5,13 +5,14 @@ import WarningModel from "./WarningModel";
 import Link from "next/link";
 import { BackIcon } from "@/icons/icon";
 import { CrossIcon } from "@/icons/icon";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [isfetching, setIsfetching] = useState(false);
   const [warn, setWarn] = useState(false);
   const messegeref = useRef("something went wrong!");
-
+const router=useRouter();
   const handlesubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -29,8 +30,11 @@ export default function Register() {
       if (response.status === 500) {
         setWarn(true);
         messegeref.current = "Registeration failed tyr again!";
+        setIsfetching(false);
+      }else if(response.status === 201){
+        router.push("/questions")
       }
-      setIsfetching(false);
+      
       console.log(response.status)
       console.log(result);
       return result.status;
