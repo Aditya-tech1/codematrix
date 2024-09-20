@@ -38,7 +38,7 @@ const Question = () => {
             <input
               type="text"
               id="q1"
-              onChange={(e) => setEmail(e.target.value)}
+              
               className={inputClassNames}
               required
             />
