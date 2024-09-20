@@ -1,14 +1,8 @@
 'use client';
-import { useState } from 'react';
 
-export default function WarningModel() {
-  const [isVisible, setIsVisible] = useState(true);
+export default function WarningModel({setWarn,messege}) {
 
-  const closeToast = () => {
-    setIsVisible(false);
-  };
 
-  if (!isVisible) return null; // Don't render if toast is closed
 
   return (
     <div
@@ -28,10 +22,10 @@ export default function WarningModel() {
         </svg>
         <span className="sr-only">Warning icon</span>
       </div>
-      <div className="ms-3 text-sm font-normal">Improve password difficulty.</div>
+      <div className="ms-3 text-sm font-normal">{messege}</div>
       <button
         type="button"
-        onClick={closeToast}
+        onClick={()=>{setWarn(false)}}
         className="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
         aria-label="Close"
       >

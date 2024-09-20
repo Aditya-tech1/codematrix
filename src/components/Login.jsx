@@ -1,10 +1,12 @@
 'use client';
-import React, { useState, useCallback } from 'react';
-
+import React, { useState, useCallback, useRef } from 'react';
+import WarningModel from './WarningModel';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [warn, setWarn] = useState(false);
+  const messegeref=useRef("Email or password is incorrect");
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
@@ -17,7 +19,13 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
       const result = await response.json();
-      console.log(response.status)
+      if (response.status === 401) {
+        setWarn(true);
+        messegeref.current="Email or password is incorrect";
+      }else if (response.status === 500) {  
+        setWarn(true);
+        messegeref.current="Failed to login user";
+      }
       console.log(result);
       return result.status;
     } catch (error) {
@@ -136,6 +144,7 @@ const Login = () => {
           </a>
         </div>
       </div>
+      {warn && <WarningModel setWarn={setWarn} messege={messegeref.current}/>}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import scheduleImage from 'https://www.svgrepo.com/show/27855/calendar-and-clock-time-administration-and-organization-tools-symbol.svg';
+import scheduleImage from '@assets/schedule.png';
 
 export default function Scheduler() {
   return (
@@ -9,7 +9,7 @@ export default function Scheduler() {
           {/* Image Section */}
           <div>
             <Image
-              src={'https://www.svgrepo.com/show/27855/calendar-and-clock-time-administration-and-organization-tools-symbol.svg'}
+              src={scheduleImage}
               alt="alert-icon"
               width={80}
               height={80}

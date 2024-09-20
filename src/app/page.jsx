@@ -2,17 +2,17 @@ import Login from "@/components/Login";
 import Register from "@/components/Register";
 import Question from "@/components/Question";
 import Image from "next/image";
-import Scheduler from "@/components/scheduler";
-import WarningModel from "@/components/WarningModel";
+/* import Scheduler from "@/components/scheduler"; */
+
 
 export default function Home() {
   return (
    <>
     <Login />
-    <Register />
+    {/* <Register />
     <Question />
-    <Scheduler />
-    <WarningModel/>
+    <Scheduler /> */}
+
    </>
   );
 }
