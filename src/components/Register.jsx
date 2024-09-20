@@ -46,21 +46,21 @@ const router=useRouter();
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 flex flex-col gap-2 items-center justify-center">
+    <div className="min-h-screen  bg-gray-900 flex flex-col gap-2 items-center justify-center">
       <Link
         href={"/"}
-        className="absolute left-3 top-3 text-[#05B0FC] font-bold flex items-center text-sm hover:cursor-pointer"
+        className="absolute left-3 top-3 text-blue-600 font-bold flex items-center text-sm hover:cursor-pointer"
       >
         <BackIcon size={30} /> Back
       </Link>
-      <div className="bg-white p-8 rounded-lg shadow-md w-1/2 relative">
+      <div className="bg-gray-800 border-gray-700 p-8 rounded-lg shadow-md w-1/2 relative">
       <Link
         href={"/"}
-        className="absolute top-1 right-4 text-[#05B0FC] font-bold flex items-center text-sm hover:cursor-pointer"
+        className="absolute top-1 right-4 text-blue-600 font-bold flex items-center text-sm hover:cursor-pointer"
       >
-        <CrossIcon className="absolute h-6 w-6 cursor-pointer" />
+        {/* <CrossIcon className="absolute h-6 w-6 cursor-pointer" /> */}
       </Link>
-        <h2 className="text-2xl font-semibold text-center text-[#05B0FC] mb-6">
+        <h2 className="text-2xl font-semibold text-center text-blue-600 mb-6">
           Create an Account
         </h2>
 
@@ -74,7 +74,7 @@ const router=useRouter();
             <div className="w-full">
               <label
                 htmlFor="name"
-                className="w-full block text-sm font-medium text-gray-700"
+                className="w-full block text-sm font-medium text-gray-200"
               >
                 Name
               </label>
@@ -82,7 +82,7 @@ const router=useRouter();
                 type="text"
                 id="name"
                 name="name"
-                className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="mt-1 block w-full px-3 py-2 bg-gray-700 text-white   rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 placeholder="Enter Your Name"
                 required
               />
@@ -91,7 +91,7 @@ const router=useRouter();
             <div className="w-full">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-200"
               >
                 Email
               </label>
@@ -99,7 +99,7 @@ const router=useRouter();
                 type="email"
                 id="email"
                 name="email"
-                className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="mt-1 block w-full px-3 py-2 bg-gray-700 text-white   rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 placeholder="Enter Your Email ID"
                 required
               />
@@ -111,7 +111,7 @@ const router=useRouter();
             <div className="w-full">
               <label
                 htmlFor="phone"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-200"
               >
                 Phone
               </label>
@@ -119,7 +119,7 @@ const router=useRouter();
                 type="tel"
                 id="phone"
                 name="phone"
-                className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="mt-1 block w-full px-3 py-2 bg-gray-700  rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 placeholder="Enter Your Phone"
                 required
               />
@@ -128,14 +128,14 @@ const router=useRouter();
             <div className="w-full">
               <label
                 htmlFor="isTeacher"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-200"
               >
                 Are You a Student?
               </label>
               <select
                 id="isTeacher"
                 name="isTeacher"
-                className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="mt-1 block w-full px-3 py-2 bg-gray-700 text-gray-200 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
               >
                 <option value="true">Yes</option>
                 <option value="false">No</option>
@@ -148,35 +148,35 @@ const router=useRouter();
             <div className="w-full">
               <label
                 htmlFor="selectClass"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-200"
               >
                 Class
               </label>
               <select
                 id="selectClass"
                 name="selectClass"
-                className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="mt-1 block w-full px-3 py-2 bg-gray-700 text-gray-200 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
               >
                 
                 
-                <option value="9">9<sup>th</sup> </option>
-                <option value="10">10<sup>th</sup> </option>
-                <option value="11">11<sup>th</sup> </option>
-                <option value="12">12<sup>th</sup> </option>
+                <option value="9">9th </option>
+                <option value="10">10th </option>
+                <option value="11">11th </option>
+                <option value="12">12th </option>
               </select>
             </div>
             {/* Disability */}
             <div className="w-full">
               <label
                 htmlFor="selectDisability"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-200"
               >
                 Disability
               </label>
               <select
                 id="selectDisability"
                 name="selectDisability"
-                className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="mt-1 block w-full px-3 py-2 bg-gray-700 text-gray-200 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
               >
                 <option value="None">None</option>
                 <option value="Dyslexia">Dyslexia</option>
@@ -191,7 +191,7 @@ const router=useRouter();
             <div className="w-full">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-200"
               >
                 Password
               </label>
@@ -200,7 +200,7 @@ const router=useRouter();
                   type={showPassword ? "text" : "password"}
                   id="password"
                   name="password"
-                  className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  className="block w-full px-3 py-2 bg-gray-700  rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   placeholder="Enter Password"
                   required
                 />
@@ -217,7 +217,7 @@ const router=useRouter();
             <div className="w-full">
               <label
                 htmlFor="confirm_password"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-200"
               >
                 Confirm Password
               </label>
@@ -225,7 +225,7 @@ const router=useRouter();
                 type="password"
                 id="confirm_password"
                 name="confirm_password"
-                className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="block w-full px-3 py-2 bg-gray-700  rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 placeholder="Re-Enter Password"
                 required
               />
@@ -235,7 +235,7 @@ const router=useRouter();
           <div>
             <button
               type="submit"
-              className="w-full flex justify-center items-center gap-2 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#05B0FC] hover:bg-[#0A8DC7] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="w-full flex justify-center items-center gap-2 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               disabled={isfetching ? true : false}
             >
               {isfetching ? <MiniloadIcon className="h-4 w-4 animate-spin" /> : ""}
@@ -244,7 +244,7 @@ const router=useRouter();
           </div>
 
           <div className="mt-6 text-center">
-            <Link href="/login" className="text-sm text-[#05B0FC] hover:text-blue-500">
+            <Link href="/login" className="text-sm text-blue-600 hover:text-blue-700">
               Back To Login
             </Link>
           </div>

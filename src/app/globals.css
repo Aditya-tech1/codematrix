@@ -8,3 +8,12 @@
     text-wrap: balance;
   }
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #18355e;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #072347;
+  border-radius: 10px;
+}

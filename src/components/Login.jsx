@@ -49,37 +49,37 @@ const Login = () => {
   }, []);
 
   const inputClassNames =
-    "mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 text-gray-800 " +
+    "mt-1 block w-full px-3 py-2 bg-gray-700  border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 text-gray-200 " +
     "focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500";
 
   const buttonClassNames =
     "w-full flex justify-center items-center gap-2 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white " +
-    "bg-[#05B0FC] hover:bg-[#0A8DC7] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500";
+    "bg-blue-600 hover:bg-[#0A8DC7] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500";
 
   return (
-    <div className="min-h-screen bg-blue-50 flex flex-col gap-2 items-center justify-center">
+    <div className="min-h-screen bg-gray-900 flex flex-col gap-2 items-center justify-center">
       <Link
         href={"/"}
-        className="absolute left-3 top-3 text-[#05B0FC] font-bold flex items-center text-sm hover:cursor-pointer"
+        className="absolute left-3 top-3 text-blue-600 font-bold flex items-center text-sm hover:cursor-pointer"
       >
         <BackIcon size={30} /> Back
       </Link>
 
-      <div className="bg-white p-8 rounded-lg shadow-md w-96 relative">
+      <div className="bg-gray-800 p-8 rounded-lg shadow-md w-96 relative">
       <Link
         href={"/"}
-        className="absolute top-1 right-4 text-[#05B0FC] font-bold flex items-center text-sm hover:cursor-pointer"
+        className="absolute top-1 right-4 text-blue-600 font-bold flex items-center text-sm hover:cursor-pointer"
       >
-        <CrossIcon className="absolute h-6 w-6 cursor-pointer" />
+        {/* <CrossIcon className="absolute h-6 w-6 cursor-pointer" /> */}
       </Link>
-        <h2 className="text-2xl font-semibold text-center text-[#05B0FC] mb-6">
+        <h2 className="text-2xl font-semibold text-center text-blue-600 mb-6">
           Login
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-200"
             >
               Email
             </label>
@@ -96,7 +96,7 @@ const Login = () => {
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-200"
             >
               Password
             </label>
@@ -169,7 +169,7 @@ const Login = () => {
         </form>
         
         <div className="mt-6 text-center">
-          <Link href="/register" className="text-sm text-[#05B0FC] hover:text-blue-500" > 
+          <Link href="/register" className="text-sm text-blue-600 hover:text-blue-500" > 
             Don`t have an account? Register
           </Link>
         </div>
