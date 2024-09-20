@@ -6,9 +6,24 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
-    console.log('Login submitted with:', { email, password });
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const result = await response.json();
+      console.log(response.status)
+      console.log(result);
+      return result.status;
+    } catch (error) {
+      console.error("Fetch error:", error);
+      return result.status;
+    } 
   }, [email, password]);
 
   const togglePasswordVisibility = useCallback(() => {

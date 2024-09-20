@@ -6,6 +6,7 @@ import bcrypt from "bcrypt";
 export async function POST(request) {
     
     try {
+        connectDB();
         const {email,password } = await request.json();
         const user = await usermodel.findOne({ email });
         if (!user || !bcrypt.compareSync(password,user.password)){
