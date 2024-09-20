@@ -2,6 +2,9 @@
 import { useState,useRef} from "react";
 import { MiniloadIcon} from "@/icons/icon";
 import WarningModel from "./WarningModel";
+import Link from "next/link";
+import { BackIcon } from "@/icons/icon";
+import { CrossIcon } from "@/icons/icon";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -39,10 +42,22 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-1/2">
+    <div className="min-h-screen bg-blue-50 flex flex-col gap-2 items-center justify-center">
+      <Link
+        href={"/"}
+        className="absolute left-3 top-3 text-[#05B0FC] font-bold flex items-center text-sm hover:cursor-pointer"
+      >
+        <BackIcon size={30} /> Back
+      </Link>
+      <div className="bg-white p-8 rounded-lg shadow-md w-1/2 relative">
+      <Link
+        href={"/"}
+        className="absolute top-1 right-4 text-[#05B0FC] font-bold flex items-center text-sm hover:cursor-pointer"
+      >
+        <CrossIcon className="absolute h-6 w-6 cursor-pointer" />
+      </Link>
         <h2 className="text-2xl font-semibold text-center text-[#05B0FC] mb-6">
-          REGISTRATION
+          Create an Account
         </h2>
 
         <form

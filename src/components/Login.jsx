@@ -1,7 +1,9 @@
 "use client";
 import React, { useState, useCallback, useRef } from "react";
 import WarningModel from "./WarningModel";
-import { MiniloadIcon } from "@/icons/icon";
+import { CrossIcon, MiniloadIcon } from "@/icons/icon";
+import Link from "next/link";
+import { BackIcon } from "@/icons/icon";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -55,8 +57,21 @@ const Login = () => {
     "bg-[#05B0FC] hover:bg-[#0A8DC7] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500";
 
   return (
-    <div className="min-h-screen bg-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+    <div className="min-h-screen bg-blue-50 flex flex-col gap-2 items-center justify-center">
+      <Link
+        href={"/"}
+        className="absolute left-3 top-3 text-[#05B0FC] font-bold flex items-center text-sm hover:cursor-pointer"
+      >
+        <BackIcon size={30} /> Back
+      </Link>
+
+      <div className="bg-white p-8 rounded-lg shadow-md w-96 relative">
+      <Link
+        href={"/"}
+        className="absolute top-1 right-4 text-[#05B0FC] font-bold flex items-center text-sm hover:cursor-pointer"
+      >
+        <CrossIcon className="absolute h-6 w-6 cursor-pointer" />
+      </Link>
         <h2 className="text-2xl font-semibold text-center text-[#05B0FC] mb-6">
           Login
         </h2>

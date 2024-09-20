@@ -20,7 +20,7 @@ function Header() {
                 <Link href='/'>
                     About
                 </Link>
-                <Link href='/' className='p-2 bg-blue-500 text-white px-5 rounded-lg'>
+                <Link href='/login' className='p-2 bg-blue-500 text-white px-5 rounded-lg'>
                     Login
                 </Link>
             </nav>
