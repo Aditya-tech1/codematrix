@@ -56,7 +56,7 @@ const Question = ({dataref,setNext}) => {
           messegeref.current = "Registeration failed tyr again!";
           setIsfetching(false);
         } else if (response.status === 201) {
-          router.push("/questions");
+          router.push("/dashboard");
         }
   
         console.log(response.status);
