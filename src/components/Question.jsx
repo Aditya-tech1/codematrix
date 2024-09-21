@@ -87,7 +87,7 @@ const Question = ({dataref,setNext}) => {
               htmlFor="q1"
               className="block text-sm font-medium text-gray-200"
             >
-              What is your favourite subject?
+              What is Your Strength?
             </label>
             <div className="mt-1 relative">
               <input type="text" id="q1" name="q1" className={inputClassNames} required />

@@ -1,7 +1,7 @@
 'use client';
 import Header from "@/components/Header";
 import { useState, useEffect } from "react";
-import courseVideo from "@/assets/video.mp4";
+// import courseVideo from "@/assets/video.mp4";
 
 
 export default function Page() {
@@ -44,7 +44,7 @@ export default function Page() {
       <div className="lg:w-3/4 w-full mt-24 p-5 pl-10">
         <div className="w-full">
           <video className="w-full rounded" controls controlsList="nodownload" disablePictureInPicture  >
-            <source src={courseVideo} type="video/mp4" />
+            <source src='https://www.w3schools.com/html/mov_bbb.mp4' type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="p-2 m-1 space-y-4 mt-6 w-full flex flex-col">
