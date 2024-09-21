@@ -1,9 +1,11 @@
 "use client";
 import React, { useState, useCallback, useRef } from "react";
 import WarningModel from "./WarningModel";
-import { CrossIcon, MiniloadIcon } from "@/icons/icon";
 import Link from "next/link";
 import { BackIcon } from "@/icons/icon";
+import { useRouter } from "next/navigation";
+import { MiniloadIcon } from "@/icons/icon";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,6 +13,7 @@ const Login = () => {
   const [warn, setWarn] = useState(false);
   const messegeref = useRef("Email or password is incorrect");
   const [isfetching, setIsfetching] = useState(false);
+  const router =useRouter();
 
   const handleSubmit = useCallback(
     async (e) => {
@@ -31,7 +34,10 @@ const Login = () => {
         } else if (response.status === 500) {
           setWarn(true);
           messegeref.current = "Failed to login user";
+        }else if(response.status===201){
+          router.push('/dashboard')
         }
+        
         setIsfetching(false);
         console.log(result);
         return result.status;
