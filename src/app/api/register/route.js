@@ -6,7 +6,7 @@ import bcrypt from "bcrypt";
 export async function POST(request) {
   try {
     await connectDB();
-    const { name, email, phone, isteacher, class_stu, disability, password }=await request.json();
+    const { name, email, phone, isteacher, class_stu, disability, password,favsub,what,why}=await request.json();
     const hashedpass=bcrypt.hashSync(password, 10);
     const newUser= new usermodel({
       name: name,
@@ -16,7 +16,11 @@ export async function POST(request) {
       class_stu:class_stu,
       disability:disability,
       password: hashedpass,
+      favsub: favsub,
+      what: what,
+      why: why
     });
+    
     await newUser.save();
     console.log(newUser);
 

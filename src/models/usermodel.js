@@ -34,6 +34,21 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  favsub: {
+    type: String,
+    required: true,
+    default: "None",
+  },
+  what : {
+    type: String,
+    required: true,
+    default: "None",
+  },
+  why: {
+    type: String,
+    required: true,
+    default: "None",
+  },
   createdAt: {
     type: Date,
     default: Date.now,
