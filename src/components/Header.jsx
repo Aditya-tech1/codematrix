@@ -8,7 +8,7 @@ import backImgae from '../assets/back.webp';
 
 function Header() {
     return (
-        <div className='flex fixed flex-row items-center justify-between h-[12vh] bg-gray-900 px-4 w-full top-0 left-0 shadow-lg z-50'>
+        <div className='flex fixed flex-row items-center justify-between h-[12vh] bg-transparent backdrop-blur-md px-4 w-full top-0 left-0 shadow-lg z-50'>
             <div className="logo flex flex-row items-center">
                 <Image src={logo} height={70} alt='logo' className='h-full p-2'/>
                 <h2 className='text-2xl ml-3 font-bold font-serif text-white h-full '>Virtual Buddy</h2>
