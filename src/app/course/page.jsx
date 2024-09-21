@@ -39,11 +39,11 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col lg:flex-row">
-      <Header />
+     <Header whatpage="dashboard"/>
       {/* Video Player Section */}
       <div className="lg:w-3/4 w-full mt-24 p-5 pl-10">
         <div className="w-full">
-          <video className="w-full rounded" controls controlsList="nodownload" disablePictureInPicture  >
+          <video className="w-full h-[80vh] rounded" controls controlsList="nodownload" disablePictureInPicture  >
             <source src='https://www.w3schools.com/html/mov_bbb.mp4' type="video/mp4" />
             Your browser does not support the video tag.
           </video>

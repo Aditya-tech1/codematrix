@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <>
-    <Header />
+    <Header whatpage={"home"}/>
     
 
     <section className="bg-center bg-cover bg-no-repeat bg-[url('../assets/back.webp')] bg-gray-700 bg-blend-multiply h-screen">
